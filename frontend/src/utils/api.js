@@ -22,6 +22,7 @@ class Api {
 
 	// Методы работы с API
 	getUserInfo() {
+		console.log(this._getAllHeaders())
 		const url = this.baseUrl + '/users/me';
 		return fetch(url, { headers: this._getAllHeaders() })
 			.then(this._checkResponse);
