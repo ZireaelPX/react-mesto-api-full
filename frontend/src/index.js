@@ -10,9 +10,12 @@ ReactDOM.render(
         {/*<HashRouter>*/}
         {/*    <App/>*/}
         {/*</HashRouter>*/}
-        <BrowserRouter basename="/react-mesto-auth">
+        <BrowserRouter>
             <App/>
         </BrowserRouter>
+        {/*<BrowserRouter basename="/react-mesto-auth">*/}
+        {/*    <App/>*/}
+        {/*</BrowserRouter>*/}
     </React.StrictMode>,
     document.getElementById('root')
 );
