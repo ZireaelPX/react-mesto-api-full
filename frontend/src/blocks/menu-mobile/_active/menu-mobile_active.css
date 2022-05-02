@@ -1,0 +1,7 @@
+.menu-mobile_active{
+    opacity: 1;
+    visibility: visible;
+    margin: 0 auto 0;
+    padding: 40px 0;
+    border-bottom: 1px solid #3b3b3b;
+}

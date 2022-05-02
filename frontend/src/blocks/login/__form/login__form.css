@@ -1,0 +1,11 @@
+.login__form{
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+}
+
+@media screen and (max-width: 620px) {
+    .login__form {
+        height: 303px;
+    }
+}

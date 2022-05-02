@@ -1,0 +1,35 @@
+.header__menu {
+    display: none;
+}
+
+@media screen and (max-width: 620px) {
+    .header__menu {
+        width: 24px;
+        height: 24px;
+        display: block;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .header__menu {
+        margin-right: 26px;
+    }
+}
+
+.header__menu:after,
+.header__menu:before,
+.header__menu span {
+    background-color: #fff;
+    content: "";
+    display: block;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+

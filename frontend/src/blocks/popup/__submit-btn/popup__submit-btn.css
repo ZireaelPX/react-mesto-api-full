@@ -1,0 +1,32 @@
+.popup__submit-btn {
+	height: 50px;
+	margin: 26px 0px 0px 0px;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #ffffff;
+	background-color: #000000;
+	border-radius: 2px;
+	border: none;
+	transition: opacity 0.3s ease 0s;
+	cursor: pointer;
+}
+/* .popup__submit-btn:disabled,
+.popup__submit-btn:disabled:hover {
+	opacity: 0.2;
+	border: 1px solid #000000;
+	background-color: #f6f6f6;
+	color: #000000;
+	cursor: default;
+} */
+.popup__submit-btn:hover {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 620px) {
+	.popup__submit-btn {
+		height: 46px;
+		font-size: 14px;
+		line-height: 17px;
+	}
+}

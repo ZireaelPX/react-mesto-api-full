@@ -1,0 +1,9 @@
+.place__description {
+	box-sizing: border-box;
+	padding: 25px 20px 25px 21px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #fff;
+	color: #000;
+}

@@ -1,0 +1,11 @@
+.header__links{
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    margin-top: 12px;
+}
+@media screen and (max-width: 620px) {
+    .header__links {
+        margin: 6px 27px 0 0;
+    }
+}

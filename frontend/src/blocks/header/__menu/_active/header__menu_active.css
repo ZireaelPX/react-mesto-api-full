@@ -1,0 +1,15 @@
+.header__menu_active:after,
+.header__menu_active:before{
+    margin: -3px 0;
+}
+.header__menu_active:before{
+    transform: rotate(225deg);
+}
+
+.header__menu_active:after{
+    transform: rotate(-225deg);
+}
+
+.header__menu_active span{
+    display: none;
+}

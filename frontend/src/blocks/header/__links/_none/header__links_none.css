@@ -1,0 +1,5 @@
+@media screen and (max-width: 620px) {
+    .header__links_none {
+        display: none;
+    }
+}

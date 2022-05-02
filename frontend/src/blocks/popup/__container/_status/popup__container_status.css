@@ -1,0 +1,10 @@
+.popup__container_status{
+    padding: 60px 36px;
+}
+
+@media screen and (max-width: 620px) {
+    .popup__container_status{
+        padding: 50px 18px;
+    }
+
+}

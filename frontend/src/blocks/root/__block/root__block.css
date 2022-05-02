@@ -1,0 +1,7 @@
+.root__block {
+	max-width: 940px;
+	margin: 0 auto;
+	min-width: 320px;
+	color: #fff;
+	font-family: "Inter", Arial, sans-serif;
+}

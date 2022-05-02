@@ -1,0 +1,42 @@
+.profile__add-btn {
+	margin-left: 30px;
+	position: relative;
+	width: 150px;
+	height: 50px;
+	border: 2px solid #ffffff;
+	box-sizing: border-box;
+	border-radius: 2px;
+	background-color: transparent;
+	color: #fff;
+	cursor: pointer;
+	transition: opacity 0.3s ease 0s;
+}
+
+.profile__add-btn:hover {
+	opacity: 0.6;
+}
+.profile__add-btn::before,
+.profile__add-btn::after {
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 22px;
+	background-color: #fff;
+}
+.profile__add-btn::before {
+	transform: translate(-50%, -50%);
+}
+.profile__add-btn::after {
+	transform: translate(-50%, -50%) rotate(90deg);
+}
+@media screen and (max-width: 620px) {
+	.profile__add-btn {
+		margin: 0;
+		width: 100%;
+	}
+	.profile__add-btn::before,
+	.profile__add-btn::after {
+		width: 2px;
+		height: 16px;
+	}
+}

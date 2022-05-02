@@ -1,0 +1,20 @@
+.profile__avatar-btn {
+	background-color: transparent;
+	border: none;
+	border-radius: 50%;
+	height: 120px;
+	margin: 0 30px 0 0;
+	outline: none;
+	padding: 0;
+	transition: background-color 0.3s ease 0s;
+	width: 120px;
+	cursor: pointer;
+}
+.profile__avatar-btn:hover {
+	background: rgba(0, 0, 0, 0.8) url("../../../images/pencil.svg") center / 26px no-repeat;
+}
+@media screen and (max-width: 620px) {
+	.profile__avatar-btn {
+		margin: 0px 0px 26px 0px;
+	}
+}
