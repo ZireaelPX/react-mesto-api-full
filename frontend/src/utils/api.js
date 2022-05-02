@@ -12,15 +12,23 @@ class Api {
 		return Promise.reject(`Ошибка: ${res.status}`);
 	}
 
+	_getAllHeaders(){
+		const jwt = localStorage.getItem('jwt');
+		return {
+			'Authorization': `Bearer ${jwt}`,
+			...this.headers,
+		};
+	}
+
 	// Методы работы с API
 	getUserInfo() {
 		const url = this.baseUrl + '/users/me';
-		return fetch(url, { headers: this.headers, })
+		return fetch(url, { headers: this._getAllHeaders() })
 			.then(this._checkResponse);
 	}
 	getInitialCards() {
 		const url = this.baseUrl + '/cards';
-		return fetch(url, { headers: this.headers, })
+		return fetch(url, { headers: this._getAllHeaders(), })
 			.then(this._checkResponse);
 	}
 
@@ -33,7 +41,7 @@ class Api {
 		const url = this.baseUrl + '/users/me';
 		return fetch(url, {
 			method: 'PATCH',
-			headers: this.headers,
+			headers: this._getAllHeaders(),
 			body: JSON.stringify({
 				name: body.name,
 				about: body.about
@@ -46,7 +54,7 @@ class Api {
 		const url = this.baseUrl + '/users/me/avatar';
 		return fetch(url, {
 			method: 'PATCH',
-			headers: this.headers,
+			headers: this._getAllHeaders(),
 			body: JSON.stringify({
 				avatar: body.avatar
 			})
@@ -57,7 +65,7 @@ class Api {
 		const url = this.baseUrl + '/cards';
 		return fetch(url, {
 			method: 'POST',
-			headers: this.headers,
+			headers: this._getAllHeaders(),
 			body: JSON.stringify({
 				name: body.title,
 				link: body.link
@@ -69,7 +77,7 @@ class Api {
 		const url = this.baseUrl + `/cards/${cardId}`;
 		return fetch(url, {
 			method: 'DELETE',
-			headers: this.headers,
+			headers: this._getAllHeaders(),
 		})
 			.then(this._checkResponse);
 	}
@@ -78,7 +86,7 @@ class Api {
 		const url = this.baseUrl + `/cards/${cardId}/likes`;
 		return fetch(url, {
 			method: 'PUT',
-			headers: this.headers,
+			headers: this._getAllHeaders(),
 		})
 			.then(this._checkResponse);
 	}
@@ -86,16 +94,16 @@ class Api {
 		const url = this.baseUrl + `/cards/${cardId}/likes`;
 		return fetch(url, {
 			method: 'DELETE',
-			headers: this.headers,
+			headers: this._getAllHeaders(),
 		})
 			.then(this._checkResponse);
 	}
 }
 
 const api = new Api({
-	baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-34',
+	baseUrl: 'https://api.artempavlov.mesto.nomoredomains.work',
 	headers: {
-		authorization: 'f9c3f6ea-f7e6-4b11-b471-468214b553cb',
+		// authorization: 'f9c3f6ea-f7e6-4b11-b471-468214b553cb',
 		'Content-Type': 'application/json'
 	}
 });
