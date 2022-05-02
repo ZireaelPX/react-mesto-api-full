@@ -8,6 +8,7 @@ const { errors } = require('celebrate');
 // const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const createErrors = require('./middlewares/errors');
+const cors = require('./middlewares/cors');
 const routes = require('./routes/index');
 
 const { PORT = 3000 } = process.env;
@@ -19,6 +20,8 @@ app.use(bodyParser.json());
 // app.post('/signup', validateCreateUser, createUser);
 
 // app.use(auth);
+
+app.use(cors)
 
 app.use(requestLogger);
 
