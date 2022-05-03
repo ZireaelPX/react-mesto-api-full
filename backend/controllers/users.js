@@ -91,7 +91,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
   const {avatar} = req.body;
   const owner = req.user._id;
 
-  User.findByIdAndUpdate(
+  return User.findByIdAndUpdate(
     owner,
     {avatar},
     {new: true, runValidators: true},
