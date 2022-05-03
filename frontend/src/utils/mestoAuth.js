@@ -1,4 +1,4 @@
-const BASE_URL = "https://artempavlov.mesto.nomoredomains.work";
+const BASE_URL = "https://api.artempavlov.mesto.nomoredomains.work";
 
 export function register(email, password) {
     return fetch(`${BASE_URL}/signup`, {
@@ -21,7 +21,6 @@ export function login(email, password) {
         body: JSON.stringify({ email, password }),
     }).then(checkResponse);
 }
-
 
 export function getToken(jwt) {
     return fetch(`${BASE_URL}/users/me`, {
