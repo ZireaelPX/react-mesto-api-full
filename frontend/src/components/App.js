@@ -41,7 +41,7 @@ function App() {
             mestoAuth.getToken(jwt)
                 .then(res => {
                     setLoggedIn(true);
-                    setEmail(res.data.email)
+                    setEmail(res.user.email)
                     history.push('/');
                 })
                 .catch((err) => {
@@ -56,7 +56,8 @@ function App() {
             Promise.all([api.getInitialCards(), api.getUserInfo()])
                 .then(([card, userInfo]) => {
                     setCards(card);
-                    setCurrentUser(userInfo);
+                    console.log(userInfo)
+                    setCurrentUser(userInfo.user);
                 })
                 .catch((err) => {
                     console.error("Что-то пошло не так: " + err);
@@ -136,7 +137,7 @@ function App() {
     }
 
     function handleCardLike(card) {
-        const isLiked = card.likes.some(i => i._id === currentUser._id);
+        const isLiked = card.likes.some(i => i === currentUser._id);
 
         if (!isLiked) {
             api.addCardLike(card._id)
