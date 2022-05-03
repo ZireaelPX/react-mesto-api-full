@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose');
-const { JWT_SECRET, NODE_ENV } = process.env;
+const {JWT_SECRET, NODE_ENV} = process.env;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -15,7 +15,7 @@ module.exports.getUsers = (req, res, next) => {
 };
 
 module.exports.getUserById = (req, res, next) => {
-  const { userId } = req.params;
+  const {userId} = req.params;
 
   return User.findById(userId)
     .orFail(() => {
@@ -35,7 +35,7 @@ module.exports.getAuthorizedUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден');
     })
-    .then((user) => res.status(200).send({ user }))
+    .then((user) => res.status(200).send({user}))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные'));
@@ -70,13 +70,13 @@ module.exports.createUser = (req, res, next) => {
 // Если в продакшене не будет работать, то по ссылке решение
 
 module.exports.updateUserInfo = (req, res, next) => {
-  const { name, about } = req.body;
+  const {name, about} = req.body;
   const owner = req.user._id;
 
   return User.findByIdAndUpdate(
     owner,
-    { name, about },
-    { new: true, runValidators: true },
+    {name, about},
+    {new: true, runValidators: true},
   )
     .then((user) => res.status(200).send(user))
     .catch((err) => {
@@ -88,13 +88,13 @@ module.exports.updateUserInfo = (req, res, next) => {
 };
 
 module.exports.updateUserAvatar = (req, res, next) => {
-  const { avatar } = req.body;
+  const {avatar} = req.body;
   const owner = req.user._id;
 
   User.findByIdAndUpdate(
     owner,
-    { avatar },
-    { new: true, runValidators: true },
+    {avatar},
+    {new: true, runValidators: true},
   )
     .then((user) => res.status(200).send(user))
     .catch((err) => {
@@ -106,13 +106,14 @@ module.exports.updateUserAvatar = (req, res, next) => {
 };
 
 module.exports.login = (req, res, next) => {
-  const { email, password } = req.body;
+  const {email, password} = req.body;
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, `${NODE_ENV === 'production' ? JWT_SECRET : 'yandex-praktikum'}`, { expiresIn: '7d' });
+      // const token = jwt.sign({ _id: user._id }, `${NODE_ENV === 'production' ? JWT_SECRET : 'yandex-praktikum'}`, { expiresIn: '7d' });
       // const token = jwt.sign({ _id: user._id }, 'yandex-praktikum', { expiresIn: '7d' });
-      res.send({ token });
+      const token = jwt.sign({_id: user._id}, `${NODE_ENV === 'production' ? JWT_SECRET : 'yandex-praktikum'}`, {expiresIn: '7d'});
+      res.send({token});
     })
     .catch(() => {
       next(new UnauthorizedError('Неправильная почта или пароль'));
