@@ -30,7 +30,8 @@ function App() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [email, setEmail] = useState("");
 
-    const [isStatusRegister, setIsStatusRegister] = useState(null);
+    const [isStatusInfoToolTip, setIsStatusInfoToolTip] = useState(null);
+    const [isStatusInfoToolTipText, setIsStatusInfoToolTipText] = useState('');
 
     let history = useHistory();
 
@@ -68,12 +69,14 @@ function App() {
     function onRegister(email, password) {
         mestoAuth.register(email, password)
             .then(res => {
-                setIsStatusRegister(true);
+                setIsStatusInfoToolTip(true);
+                setIsStatusInfoToolTipText('Успешная регистрация!');
                 history.push('/sign-in');
             })
             .catch(err => {
-                setIsStatusRegister(false);
-                console.log(err + ': ошибка регистрации')
+                setIsStatusInfoToolTip(false);
+                setIsStatusInfoToolTipText('Что-то пошло не так! Попробуйте ещё раз!');
+                console.log(err + ': ошибка регистрации');
             })
             .finally(handleInfoTooltip)
     }
@@ -87,7 +90,8 @@ function App() {
                 history.push('/');
             })
             .catch(err => {
-                setIsStatusRegister(false);
+                setIsStatusInfoToolTip(false);
+                setIsStatusInfoToolTipText('Неправильный логин или пароль!');
                 handleInfoTooltip();
                 console.log(err + ': ошибка авторизации')
             })
@@ -108,6 +112,9 @@ function App() {
                 closeAllPopups();
             })
             .catch((err) => {
+                setIsStatusInfoToolTip(false);
+                setIsStatusInfoToolTipText('Ошибка обновления данных о пользователе!');
+                handleInfoTooltip();
                 console.error("Ошибка обновления данных о пользователе: " + err)
             })
     }
@@ -119,6 +126,9 @@ function App() {
                 closeAllPopups();
             })
             .catch((err) => {
+                setIsStatusInfoToolTip(false);
+                setIsStatusInfoToolTipText('Ошибка обновления аватара!');
+                handleInfoTooltip();
                 console.error("Ошибка обновления данных о пользователе: " + err)
             })
     }
@@ -130,6 +140,9 @@ function App() {
                 closeAllPopups();
             })
             .catch(err => {
+                setIsStatusInfoToolTip(false);
+                setIsStatusInfoToolTipText('Ошибка добавления карточки!');
+                handleInfoTooltip();
                 console.error('Ошибка добавления новой карточки: ' + err)
             })
     }
@@ -143,6 +156,9 @@ function App() {
                     setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
                 })
                 .catch(err => {
+                    setIsStatusInfoToolTip(false);
+                    setIsStatusInfoToolTipText('Не удалось поставить лайк...');
+                    handleInfoTooltip();
                     console.error('Ошибка установки лайка: ' + err)
                 })
         } else {
@@ -151,6 +167,9 @@ function App() {
                     setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
                 })
                 .catch(err => {
+                    setIsStatusInfoToolTip(false);
+                    setIsStatusInfoToolTipText('Не удалось снять лайк...');
+                    handleInfoTooltip();
                     console.error('Ошибка установки лайка: ' + err)
                 })
         }
@@ -162,6 +181,9 @@ function App() {
                 setCards((cards) => cards.filter((c) => c._id !== card._id));
             })
             .catch((err) => {
+                setIsStatusInfoToolTip(false);
+                setIsStatusInfoToolTipText('Не удалось удалить карточку...');
+                handleInfoTooltip();
                 console.error("Ошибка удаления карточки " + err);
             });
     }
@@ -250,7 +272,8 @@ function App() {
                 name="status"
                 isOpen={isInfoTooltip}
                 onClose={closeAllPopups}
-                isStatusRegister={isStatusRegister}
+                isStatusInfoToolTip={isStatusInfoToolTip}
+                isStatusInfoToolTipText={isStatusInfoToolTipText}
             />
 
 
