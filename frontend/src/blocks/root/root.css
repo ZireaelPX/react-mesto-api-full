@@ -1,5 +1,17 @@
 .root {
-	background-color: #000;
+	/*background-color: #000;*/
+	background: url('../../images/bg2.png') 0 0/cover;
 	margin: 0;
 	overflow-y: scroll;
 }
+
+/*.root:after {*/
+/*	content: '';*/
+/*	position: fixed;*/
+/*	top: 0;*/
+/*	left: 0;*/
+/*	right: 0;*/
+/*	bottom: 0;*/
+/*	background: rgba(0,0,0,.5);*/
+/*	z-index: 1;*/
+/*}*/
