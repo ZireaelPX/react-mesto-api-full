@@ -1,8 +1,9 @@
 .root {
 	/*background-color: #000;*/
-	background: url('../../images/bg2.png') 0 0/cover;
+	background: url('../../images/bg2-min.jpg') 0 0/cover;
 	margin: 0;
 	overflow-y: scroll;
+
 }
 
 /*.root:after {*/
