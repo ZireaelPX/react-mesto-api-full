@@ -48,6 +48,10 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 37px 37px;
+	transition: opacity 0.3s ease 0s;
+}
+.popup__download-btn:hover {
+	opacity: 0.6;
 }
 
 @media screen and (max-width: 620px) {
