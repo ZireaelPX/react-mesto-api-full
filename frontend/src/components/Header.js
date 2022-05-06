@@ -1,4 +1,3 @@
-import logo from "../images/logo.svg";
 import {Link} from "react-router-dom";
 import Menu from "./Menu";
 import {useState} from "react";
@@ -17,7 +16,7 @@ function Header({nameLink, route = "", onOut, email = "", isLogin}) {
             }
 
             <header className="header">
-                <img className="header__logo" src={logo} alt="Место. Россия"/>
+                <h1 className="header__logo">Space</h1>
                 <nav className={`header__links ${isLogin ? 'header__links_none' : ''}`}>
                     <p className="header__email">{email}</p>
                     <Link className="header__link" to={route} onClick={onOut}>{nameLink}</Link>

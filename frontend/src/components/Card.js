@@ -14,7 +14,6 @@ function Card({card, id, onCardClick, onLikeCard, onCardDelete}) {
         `place__like-btn ${isLiked ? 'place__like-btn_active' : ''}`
     );
 
-
     function handleClick() {
         onCardClick(card);
     }
@@ -36,9 +35,10 @@ function Card({card, id, onCardClick, onLikeCard, onCardDelete}) {
                     <button className={cardLikeButtonClassName} type="button" onClick={handleLikeClick}/>
                     <p className="place__like-count">{card.likes.length}</p>
                 </div>
-
             </div>
             <button className={cardDeleteButtonClassName} type="button" onClick={handleDeleteClick}/>
+            {/*<a className="place__download-btn" href={card.link} target="_blank">*/}
+            {/*</a>*/}
         </li>
     );
 }

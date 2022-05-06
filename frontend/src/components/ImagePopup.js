@@ -6,6 +6,7 @@ function ImagePopup(props){
                      alt={`${props.card ? props.card.name : ''}`}/>
                 <figcaption className="popup__caption">{`${props.card ? props.card.name : ''}`}</figcaption>
                 <button className="popup__close-btn" type="button" onClick={props.onClose}/>
+                <a className="popup__download-btn" href={`${props.card ? props.card.link : ''}`} target="_blank"></a>
             </figure>
         </div>
     );
