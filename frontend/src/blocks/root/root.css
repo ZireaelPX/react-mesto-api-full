@@ -1,18 +1,25 @@
 .root {
 	/*background-color: #000;*/
-	background: url('../../images/bg2-min.jpg') 0 0/cover;
+	/*background: url('../../images/bg2-min.jpg') 0 0/cover;*/
 	margin: 0;
 	overflow-y: scroll;
-
+	animation: scroll 600s linear infinite;
+	background: url("../../images/bg2-min.jpg"), #000;
+	height: 100vh;
+	min-width: 360px;
+	width: 100%;
+	perspective: 1000px;
+	perspective-origin: 50% 50%;
 }
 
-/*.root:after {*/
-/*	content: '';*/
-/*	position: fixed;*/
-/*	top: 0;*/
-/*	left: 0;*/
-/*	right: 0;*/
-/*	bottom: 0;*/
-/*	background: rgba(0,0,0,.5);*/
-/*	z-index: 1;*/
-/*}*/
+@keyframes scroll {
+	100%{
+		background-position:0 -5000px;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	.wrapper {
+		animation: scroll 200s linear infinite;
+	}
+}
