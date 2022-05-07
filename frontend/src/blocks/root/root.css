@@ -23,3 +23,27 @@
 		animation: scroll 600s linear infinite;
 	}
 }
+
+.button-play{
+	background: none;
+	border: 0;
+	width: 30px;
+	height: 30px;
+}
+
+.button-play-img{
+	width: 30px;
+	height: 30px;
+}
+
+@media screen and (max-width: 620px) {
+	.button-play{
+		width: 20px;
+		height: 20px;
+	}
+
+	.button-play-img{
+		width: 20px;
+		height: 20px;
+	}
+}
