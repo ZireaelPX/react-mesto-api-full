@@ -31,8 +31,12 @@
 	width: 30px;
 	height: 30px;
 }
+.button-play:hover .button-play-img{
+	opacity: 0.6;
+}
 
 .button-play-img{
+	transition: all 0.3s ease 0s;
 	width: 30px;
 	height: 30px;
 }
