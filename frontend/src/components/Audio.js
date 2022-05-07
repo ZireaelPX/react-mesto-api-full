@@ -25,6 +25,7 @@ function Audio() {
             <button
                 onClick={startSong}
                 className="button-play"
+                tabIndex={-1}
             >
                 <img className="button-play-img" src={songStatus ? pause : play} alt={songStatus ? "Button: музыка выключена" : "Button: музыка включена"}/>
             </button>
