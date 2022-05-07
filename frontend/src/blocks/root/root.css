@@ -25,6 +25,7 @@
 }
 
 .button-play{
+	cursor: pointer;
 	background: none;
 	border: 0;
 	width: 30px;
