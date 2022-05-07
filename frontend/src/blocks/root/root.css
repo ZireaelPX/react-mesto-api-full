@@ -20,6 +20,6 @@
 
 @media (prefers-reduced-motion) {
 	.wrapper {
-		animation: scroll 200s linear infinite;
+		animation: scroll 600s linear infinite;
 	}
 }
