@@ -8,7 +8,7 @@ function Audio() {
     const audio = useRef();
 
     function startSong(){
-        audio.current.volume = 0.3;
+        audio.current.volume = 0.4;
 
         isSongStatus(!songStatus);
 
@@ -21,7 +21,7 @@ function Audio() {
 
     return (
         <>
-            <audio ref={audio} src={Interstellar}/>
+            <audio loop ref={audio} src={Interstellar}/>
             <button
                 onClick={startSong}
                 className="button-play"

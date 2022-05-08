@@ -2,4 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 1;
+    visibility: visible;
+}
+.login_unvisible{
+    opacity: 0;
+    visibility: hidden;
 }
