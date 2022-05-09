@@ -2,6 +2,7 @@ const allowedCors = [
   'http://localhost:3000',
   'http://artempavlov.mesto.nomoredomains.work',
   'https://artempavlov.mesto.nomoredomains.work',
+  'http://127.0.0.1:5500'
 ];
 
 const cors = (req, res, next) => {
