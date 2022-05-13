@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 import PopupWithForm from "./PopupWithForm";
 
-function EditProfilePopup({isOpen, onClose, onAddNewCard}) {
+function AddPlacePopup({isOpen, onClose, onAddNewCard}) {
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +23,6 @@ function EditProfilePopup({isOpen, onClose, onAddNewCard}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-
         setIsLoading(true);
         onAddNewCard({
             title,
@@ -34,7 +33,7 @@ function EditProfilePopup({isOpen, onClose, onAddNewCard}) {
     return (
         <PopupWithForm
             name={"card-add"}
-            title={"Новое место"}
+            title={"Новая публикация"}
             btnText={"Создать"}
             isOpen={isOpen}
             onClose={onClose}
@@ -52,4 +51,4 @@ function EditProfilePopup({isOpen, onClose, onAddNewCard}) {
     )
 }
 
-export default EditProfilePopup;
+export default AddPlacePopup;
